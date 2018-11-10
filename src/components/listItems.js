@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import styles from './styles';
 import { Container, Row, Col } from 'reactstrap';
-
+import { Link} from 'react-router-dom';
 const months =['Jan','Feb','Mar','Apr','May','Jun','July','Aug','Sept','Oct','Nov','Dec'];
 class App extends Component {
   constructor(props){
@@ -11,6 +11,14 @@ class App extends Component {
       list:this.props.list
     }
 
+  }
+  shouldComponentUpdate(nextProps,nextState){
+    console.log(nextProps,nextState);
+    if(nextProps.list.length){
+      nextState.list=nextProps.list;
+      return true;
+    }
+    return false;
   }
   getListItems(){
       let {list} =this.state;
@@ -25,12 +33,12 @@ class App extends Component {
         </Col>
         <Col xs="6">
           <div className="card-fund">
-            {item['percentage.funded']} of {item['amt.pledged']} {item.currency.toUpperCase()} funded
+            {item['percentage.funded']}% of {item['amt.pledged']} {item.currency.toUpperCase()} funded
           </div>
         </Col>
         </Row>
           <div className="card-title">
-            {item.title}
+            <a href={"https://www.kickstarter.com/"+item.url} target="_blank">{item.title}</a>
           </div>
           <div className="card-blurb">
             {item.blurb}
@@ -46,9 +54,9 @@ class App extends Component {
           </Col>
           <Col xs="6">
             <div className="card-fund">
-              {item['percentage.funded']} of {item['amt.pledged']} {item.currency.toUpperCase()} funded
-              <br/>
               {item['num.backers']} backers
+              <br/>
+              <a href={"https://www.kickstarter.com/"+item.url} target="_blank">Click Here to Know More</a> 
             </div>
           </Col>
           </Row>
@@ -63,9 +71,20 @@ class App extends Component {
     console.log(this.state.list);
     return (
       <div className="App">
-        <div className="card grid-container">
-        {this.getListItems()}
-        </div>
+        {
+          (this.state.list.length==1)?
+          (
+            <div className="card ">
+            {this.getListItems()}
+            </div>
+          )
+          :
+          (
+            <div className="card grid-container">
+            {this.getListItems()}
+            </div>
+          )
+        }
       </div>
     );
   }

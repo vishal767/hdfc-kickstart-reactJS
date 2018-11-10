@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 html {
 	height: 100%;
 }
@@ -6,6 +6,7 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+  font-family: 'Roboto' sans-serif;
 }
 img {
 	max-width: 100%;
@@ -18,8 +19,57 @@ img {
 .footer {
 	background-color: #f5f5f5;
 }
-
-
+.search-text-wrap{
+  display: inline-flex;
+  font-family: 'Roboto' sans-serif;
+}
+.display-inline{
+  display:inline-flex;
+}
+.search-button{
+  background-image: linear-gradient(to right, #8fd3f4 0%, #84fab0 100%);
+    cursor: pointer;
+    font-size: 19px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    color: white;
+    padding-left:5px;
+    padding-right:5px;
+    border: 1px solid #84fab0;
+    line-height: 2.5;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 2px 0px;
+    display:inline-flex;
+    font-family: 'Roboto' sans-serif;
+}
+.search-text{
+  width: 664px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left:10px;
+  height: 53px;
+  font-size: 25px;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid #dedede;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px 0px;
+  transition: opacity 1s cubic-bezier(.43,.41,.22,.91);
+  font-family: 'Roboto' sans-serif;
+}
+.search-text:hover{
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 10px 0px;
+}
+.badge{
+  margin-right:5px;
+  background-color: #00d1b2;
+  font-family: 'Roboto' sans-serif;
+}
+.badge:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
 /* Custom page CSS - MOBILE first */
 body > .container {
   padding: 60px 15px 0;
@@ -46,6 +96,7 @@ body > .container {
 }
 .card-main{
   margin:10px;
+  font-family: 'Roboto' sans-serif;
 }
 .card-title{
   font-size: 20px;
@@ -53,6 +104,7 @@ body > .container {
   padding-left:5px;
   padding-top:5px;
   min-height:75px;
+  font-family: 'Roboto' sans-serif;
 }
 .card-blurb{
   font-size: 14px;
@@ -60,6 +112,7 @@ body > .container {
   padding-left:5px;
   padding-top:5px;
   min-height:70px;
+  font-family: 'Roboto' sans-serif;
 }
 .card-author{
   font-size:14px;
@@ -67,6 +120,7 @@ body > .container {
   width:100%;
   padding-left:10px;
   min-height:50px;
+  font-family: 'Roboto' sans-serif;
 }
 .card-fund{
   font-size:14px;
@@ -74,13 +128,19 @@ body > .container {
   width:100%;
   padding-left:10px;
   min-height:50px;
+  font-family: 'Roboto' sans-serif;
 }
 .card-img{
 
-  
+
+}
+a,a:hover{
+  text-decoration: none;
+  color:inherit;
 }
 .card{
-  margin:30px
+  margin:30px;
+  border:0px;
 }
 .card-flex {
 	display: -webkit-flex;
@@ -96,15 +156,7 @@ body > .container {
 	justify-content: flex-start;
 
 }
-.card-flex-item {
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	width: 100%;
-	padding-right: 0;
-}
+
 .card-flex-wrapper {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -122,21 +174,7 @@ body > .container {
     box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 5px 0px;
     transition: opacity 1s cubic-bezier(.43,.41,.22,.91);
 }
-.card-flex-image img {
-	opacity: 1;
-}
-.card-flex-button {
-	background-color: white;
-	border: 1px solid #333;
-	padding: 0.5rem;
-	color: #333;
-	text-align: center;
-	text-decoration: none;
-}
-.card-flex-button:hover {
-	color: #333;
-	text-decoration: none;
-}
+
 .hr-line{
   margin-top:4px;
   margin-bottom: 4px;
@@ -152,16 +190,7 @@ body > .container {
 	.container .text-muted {
 		text-align: end;
 	}
-	.card-flex-item {
-		width: 33.33%;
-		padding-right: 1em;
-	}
-	.card-flex-item:nth-child(3n) {
-		padding-right: 0;
-	}
-	.card-flex-image img {
-		opacity: 0.8;
-	}
+
 	.card-flex-wrapper:hover {
 		cursor: pointer;
 		background-color: white;
@@ -169,11 +198,14 @@ body > .container {
 
 
 	}
-	.card-flex-wrapper:hover .card-flex-image img {
-		opacity: 1;
 
-	}
-	.card-flex-wrapper:hover .card-flex-button {
-		background-color: white;
-	}
+}
+@media (max-width: 768px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto ;
+
+
+  }
+
 }
